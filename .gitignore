@@ -1,0 +1,44 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Go build output
+/bin/
+/out/
+*.o
+*.a
+*.test
+
+# Go vendor (optional, uncomment if vendoring)
+# vendor/
+
+# Environment and secret files
+.env
+.env.*
+*.pem
+*.key
+*.secret
+secrets/
+credentials/
+
+# Stellar keypair / wallet files
+*.seed
+*.keypair
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Debug binaries
+__debug_bin*
