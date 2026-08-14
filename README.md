@@ -156,6 +156,8 @@ stellar-testnet-go/
 
 ---
 
-## License
+## Author
+
+Aishwarya M
 
 This project is for educational and demonstration purposes on the Stellar Testnet.
