@@ -135,4 +135,26 @@ func main() {
 	fmt.Println("Transaction Hash:", txResp.Hash)
 	fmt.Println("Successful:", txResp.Successful)
 	fmt.Println("1 XLM sent from sender to receiver!")
+
+	// 6. Fetch transaction history for the sender account
+	txRequest := horizonclient.TransactionRequest{
+		ForAccount:    publicKey,
+		IncludeFailed: true,
+		Order:         horizonclient.OrderDesc,
+	}
+
+	txHistory, err := client.Transactions(txRequest)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println("\n=== Sender Transaction History ===")
+	for i, record := range txHistory.Embedded.Records {
+		fmt.Printf("\nTransaction #%d\n", i+1)
+		fmt.Println("  Hash:           ", record.Hash)
+		fmt.Println("  Ledger:         ", record.Ledger)
+		fmt.Println("  Created At:     ", record.LedgerCloseTime)
+		fmt.Println("  Source Account: ", record.Account)
+		fmt.Println("  Successful:     ", record.Successful)
+	}
 }
